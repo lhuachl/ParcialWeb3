@@ -11,13 +11,7 @@ namespace PrimerParcial.Extensions
             using var scope = serviceProvider.CreateScope();
             var context = scope.ServiceProvider.GetRequiredService<RecetasDBContext>();
 
-            // Apply any pending migrations
-            await context.Database.MigrateAsync();
-
-            // Check if we already have data
-            if (await context.Categories.AnyAsync())
-                return;
-
+            
             // Seed Categories
             var categories = new[]
             {
@@ -29,7 +23,6 @@ namespace PrimerParcial.Extensions
             };
 
             context.Categories.AddRange(categories);
-            await context.SaveChangesAsync();
 
             // Seed Sample Recipes
             var recipes = new[]
