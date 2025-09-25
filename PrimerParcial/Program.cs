@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using PrimerParcial.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -6,9 +7,12 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddDbContext<PrimerParcial.Data.RecetasDBContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("Default_Connection")));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 var app = builder.Build();
+
+// Seed the database
+await app.Services.SeedDataAsync();
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())

@@ -1,0 +1,45 @@
+@model PrimerParcial.Models.Ingredient
+
+@{
+    ViewData["Title"] = "Agregar Ingrediente";
+}
+
+<h1>Agregar Nuevo Ingrediente</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-6">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            
+            <div class="form-group mb-3">
+                <label asp-for="Name" class="form-label"></label>
+                <input asp-for="Name" class="form-control" placeholder="Ej: Harina de trigo" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            
+            <div class="form-group mb-3">
+                <label asp-for="Quantity" class="form-label"></label>
+                <input asp-for="Quantity" class="form-control" placeholder="Ej: 2 tazas, 500 gramos" />
+                <span asp-validation-for="Quantity" class="text-danger"></span>
+            </div>
+            
+            <div class="form-group mb-3">
+                <label asp-for="RecipeId" class="form-label">Receta</label>
+                <select asp-for="RecipeId" class="form-control" asp-items="ViewBag.RecipeId">
+                    <option value="">-- Selecciona una receta --</option>
+                </select>
+                <span asp-validation-for="RecipeId" class="text-danger"></span>
+            </div>
+            
+            <div class="form-group">
+                <input type="submit" value="Crear" class="btn btn-primary" />
+                <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

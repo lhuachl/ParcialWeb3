@@ -20,3 +20,54 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+/* Custom styles for Recipe App */
+.jumbotron {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.card {
+  transition: transform 0.2s ease-in-out;
+  border: none;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.btn {
+  transition: all 0.2s ease-in-out;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+}
+
+.navbar-brand {
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.list-group-item-action:hover {
+  transform: translateX(5px);
+  transition: transform 0.2s ease-in-out;
+}
+
+.table {
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.form-control {
+  border-radius: 8px;
+}
+
+.card-body i {
+  margin-bottom: 15px;
+}
+
+.bg-primary {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+}
