@@ -11,8 +11,8 @@ namespace PrimerParcial.Extensions
             using var scope = serviceProvider.CreateScope();
             var context = scope.ServiceProvider.GetRequiredService<RecetasDBContext>();
 
-            // Ensure database is created
-            await context.Database.EnsureCreatedAsync();
+            // Apply any pending migrations
+            await context.Database.MigrateAsync();
 
             // Check if we already have data
             if (await context.Categories.AnyAsync())
