@@ -60,8 +60,8 @@ namespace PrimerParcial.Extensions
             };
 
             context.Recipes.AddRange(recipes);
-            await context.SaveChangesAsync();//me rindo en mi vida vi que pasara esto (te odio .NET)
-            
+            //await context.SaveChangesAsync();//me rindo en mi vida vi que pasara esto (te odio .NET)
+            //me rindo lo peor es que es mi propio codigo 
             // Seed Sample Ingredients
             var ingredients = new[]
             {
@@ -88,7 +88,7 @@ namespace PrimerParcial.Extensions
             };
 
             context.Ingredients.AddRange(ingredients);
-            await context.SaveChangesAsync();
+            //await context.SaveChangesAsync();
         }
     }
 }
